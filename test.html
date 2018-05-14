@@ -5,7 +5,7 @@
 
 <input type=button value=click onclick="{
   // (function(){
-  // Pts.namespace( this ); // add Pts into scope if needed
+  Pts.namespace( this ); // add Pts into scope if needed
    
   // create Space and Form
   var space = new Pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
