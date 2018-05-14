@@ -1,0 +1,20 @@
+
+<script src="https://unpkg.com/pts@0.4.0/dist/pts.d.ts"></script>
+
+<div id="myDiv2424">...</div>
+
+<input type=button value=click onclick="{
+
+
+  var mySpace = pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
+
+  var myPtForm = mySpace.getForm();                                 
+                                                                               
+  mySpace.add( function() { 
+      myPtForm.point( mySpace.pointer, 10 ) 
+  });
+    
+  mySpace.playOnce(200).bindMouse().bindTouch();
+   
+
+}">
