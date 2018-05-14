@@ -3,8 +3,13 @@
 <div id="myDiv2424">...</div>
 
 <input type=button value=click onclick="{
-import * as pts from 'https://unpkg.com/pts@0.4.0/dist/index.js';
+//import * as pts from 'https://unpkg.com/pts@0.4.0/dist/index.js';
 
+                                        
+                                        
+  (async function () {                                      
+  var pts = await import('https://unpkg.com/pts@0.4.0/dist/index.js'); 
+                                        
   var mySpace = pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
 
   var myPtForm = mySpace.getForm();                                 
@@ -15,6 +20,6 @@ import * as pts from 'https://unpkg.com/pts@0.4.0/dist/index.js';
     
   mySpace.playOnce(200).bindMouse().bindTouch();
    
-
+})()
 }">
 
