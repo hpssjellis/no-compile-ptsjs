@@ -5,25 +5,18 @@
 
 <input type=button value=click onclick="{
 
-  // (function(){
-  // Pt.namespace( this ); // add Pts into scope if needed
-  // var Pt = Pt || {} 
-                                        
-                                         
-                                        
-  // create Space and Form
+  (function(){
+
   var mySpace = new Pt.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
 
   var myPtForm = new Pt.CanvasForm(mySpace):                                      
-                                        
-                                        
-
-  // animation
-  mySpace.add( () => myPtForm.point( mySpace.pointer, 10 ) );
+                                                                               
+  mySpace.add( function() { 
+      myPtForm.point( mySpace.pointer, 10 ) 
+  });
     
-  // start
   mySpace.playOnce(200).bindMouse().bindTouch();
    
-//})();
+})();
 }">
 
