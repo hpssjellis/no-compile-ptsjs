@@ -11,12 +11,14 @@
 
 <!--   *******************************Stop What source js file to use****************************************************   -->
 
+
+<div id="myDiv2424">... </div>
 <script >
 
 
-   myCanvasSpace     = new CanvasSpace()
-   myPt              = new Pt()
-
+  // myCanvasSpace     = new CanvasSpace()
+  // myPt              = new Pt()
+  var mySpace = new Pt.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
 // not working but interesting
 
  //myNDArray          = new deeplearn.NDArray.new()  // not working
@@ -212,9 +214,8 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 
 <input type=button value="1 window" onclick="{myObjectData(window)}">
 <input type=button value="2 document" onclick="{myObjectData(document)}">
-<input type=button value="3 myCanvasSpace" onclick="{myObjectData(myCanvasSpace)}">
+<input type=button value="3 myCanvasSpace" onclick="{myObjectData(mySpace)}">
 
-<input type=button value="23 myPt" onclick="{myObjectData(myPt)}">
 <input type=button value="23 " onclick="{myObjectData()}">
 <input type=button value="23 " onclick="{myObjectData()}">
 <input type=button value="23 " onclick="{myObjectData()}">
