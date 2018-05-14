@@ -1,5 +1,5 @@
 
-<script src="https://unpkg.com/ptjs@0.2.4/dist/module/pt.js"></script>
+<script src="https://unpkg.com/pts@0.4.1/dist/index.js"></script>
 
 <div id="myDiv2424">...</div>
 
@@ -9,7 +9,7 @@
 
   var mySpace = new Pt.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
 
-  var myPtForm = new Pt.Form(mySpace)                                      
+  var myPtForm = mySpace.getForm();                                 
                                                                                
   mySpace.add( function() { 
       myPtForm.point( mySpace.pointer, 10 ) 
