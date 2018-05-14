@@ -9,7 +9,7 @@
    
   // create Space and Form
   var space = new Pt.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
-  var form = space.getForm();
+  var form = Pt.getForm();
 
   // animation
   space.add( () => form.point( space.pointer, 10 ) );
