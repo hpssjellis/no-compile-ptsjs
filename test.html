@@ -4,8 +4,8 @@
 <div id="myDiv2424">...</div>
 
 <input type=button value=click onclick="{
-   (function(){
-   Pts.namespace( this ); // add Pts into scope if needed
+  // (function(){
+  // Pts.namespace( this ); // add Pts into scope if needed
    
   // create Space and Form
   var space = new CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
@@ -17,6 +17,6 @@
   // start
   space.playOnce(200).bindMouse().bindTouch();
    
-})();
+//})();
 }">
 
