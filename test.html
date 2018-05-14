@@ -12,14 +12,17 @@
                                          
                                         
   // create Space and Form
-  var space = new Pt.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
-  var form = space.getForm();
+  var mySpace = new Pt.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
+
+  var myPtForm = new Pt.CanvasForm(mySpace):                                      
+                                        
+                                        
 
   // animation
-  space.add( () => form.point( space.pointer, 10 ) );
+  mySpace.add( () => myPtForm.point( mySpace.pointer, 10 ) );
     
   // start
-  space.playOnce(200).bindMouse().bindTouch();
+  mySpace.playOnce(200).bindMouse().bindTouch();
    
 //})();
 }">
