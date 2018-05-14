@@ -1,8 +1,22 @@
 
 <script src="https://unpkg.com/ptjs@0.2.4/dist/module/pt.js"></script>
 
+<div id="myDiv2424">...</div>
 
 <input type=button value=click onclick="{
-   alert(pt.version)
+   (function(){
+   Pts.namespace( this ); // add Pts into scope if needed
+   
+  // create Space and Form
+  var space = new CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
+  var form = space.getForm();
+
+  // animation
+  space.add( () => form.point( space.pointer, 10 ) );
+    
+  // start
+  space.playOnce(200).bindMouse().bindTouch();
+   
+})();
 }">
 
