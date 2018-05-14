@@ -19,7 +19,11 @@
   // myCanvasSpace     = new CanvasSpace()
   // myPt              = new Pt()
   var mySpace = new Pt.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
-  var myElement = new mySpace.HTMLCanvasElement()
+ // var myElement = new mySpace.HTMLCanvasElement()
+	
+  var myFormPt = new Pt.CanvasForm(mySpace):	
+	
+	
 // not working but interesting
 
  //myNDArray          = new deeplearn.NDArray.new()  // not working
@@ -218,7 +222,7 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 <input type=button value="3 mySpace" onclick="{myObjectData(mySpace)}">
 
 <input type=button value="4 myElement" onclick="{myObjectData(myElement)}">
-<input type=button value="23 " onclick="{myObjectData()}">
+<input type=button value="5 myFormPt" onclick="{myObjectData(myFormPt)}">
 <input type=button value="23 " onclick="{myObjectData()}">
 <input type=button value="23 " onclick="{myObjectData()}">
 <input type=button value="23 " onclick="{myObjectData()}">
