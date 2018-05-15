@@ -15,10 +15,10 @@
 (function(){
   Pts.namespace( this ); // add Pts into scope if needed
   
- 
+
   
   // create Space and Form
-  var space = new CanvasSpace('#myDiv2424'.setup({ retina: true, bgcolor: '#e2e6ef', resize: true });
+  var space = new CanvasSpace('#myDiv2424').setup({ retina: true, bgcolor: '#e2e6ef', resize: true });
   var form = space.getForm();
   
   // animation
@@ -38,16 +38,15 @@
     // Alternatively, just use the Geom.reflect2D to reflect a group of Pt
     let g3 = g2.clone();
     Geom.reflect2D( g3, reflectLine );
-
-
+    
     form.strokeOnly('#fff', 20, 'miter').line(g1).stroke('#123').line(g3);
     form.stroke('#f03', 10).line( reflectLine );
-
+    
   });
   
   // start
-  //space.playOnce(200).bindMouse().bindTouch();
-      space.bindMouse().bindTouch().play(); 
+  space.playOnce(200).bindMouse().bindTouch();
+  
 
   
 })();
