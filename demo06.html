@@ -2,54 +2,51 @@
 
 <script src="https://unpkg.com/pts/dist/pts.min.js"></script>   
 
-<!--  <script src="https://raw.githubusercontent.com/williamngan/pts/master/dist/pts.js"></script>  -->
+
 
 
 
 <input type=button value=click onclick="{
 
 
-//var Pts = Pts || {}
+
                                         
                                         
- (function(){
-                                        
-                
-   Pts.namespace( this); // add Pts into scope if needed
-  
+(function(){
+   Pts.namespace( this ); // add Pts into scope if needed
 
   
   // create Space and Form
-  var space = new CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
+  var space = new CanvasSpace('#myDiv2424').setup({ retina: true, bgcolor: '#e2e6ef', resize: true });
   var form = space.getForm();
-  
+  var pts = undefined;
 
   // animation
   space.add( (time, ftime) => {
 
-    // rectangle
-    var rect = Rectangle.fromCenter( space.center, space.size.$divide(2) );
-    var poly = Rectangle.corners( rect );
-    poly.shear2D( Num.cycle( time%5000/5000 ) - 0.5, space.center );
+    // would be better to init this in player's `start` function, but we are lazy here.
+    if (!pts) pts = Create.distributeRandom( space.innerBound, 100 );
+
+    let t = space.pointer;
+    pts.sort( (a,b) => a.$subtract(t).magnitudeSq() - b.$subtract(t).magnitudeSq() );
     
-    // triangle
-    var tris = poly.segments( 2, 1, true );
-    tris.map( (t) => t.push( space.pointer ) );
+    let ten = pts.slice(0, 10);
+    let curve = Polygon.convexHull( ten );
+    curve.insert( curve.slice(0, 3), curve.length );
     
-    // circle
-    var circles = tris.map( (t) => Triangle.incircle( t ) );
+
+    form.fillOnly('#123').points( pts, 2, 'circle' );
+    form.strokeOnly('#fff',3).line( curve );
+    form.stroke('#000').polygon( Curve.bspline( curve ) );
     
-    // drawing
-    form.fillOnly('#123').polygon( poly );
-    form.fill('#f03').circles( circles );
-    form.strokeOnly('#fff ', 3 ).polygons( tris );
-    form.fill('#123').point( space.pointer, 5 );
-    
+    let pp = ten.map( (p) => [space.pointer, p] );
+    form.strokeOnly('#f03', 2).lines( pp );
+
   });
   
   // start
- // space.playOnce(200).bindMouse().bindTouch();
-    space.bindMouse().bindTouch().play(); 
+  space.playOnce(200).bindMouse().bindTouch();
+  
 
   
 })();
