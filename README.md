@@ -12,6 +12,11 @@ demo01
 https://hpssjellis.github.io/no-compile-ptsjs/demo01.html
 
 
+
+demo02  
+https://hpssjellis.github.io/no-compile-ptsjs/demo02.html
+
+
 https://hpssjellis.github.io/no-compile-ptsjs/test-bad01.html
 
 
