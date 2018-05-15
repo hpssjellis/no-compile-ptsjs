@@ -9,9 +9,10 @@
                                         
                                         
   (async function() {                                      
-
+     Pts.namespace( this );
                                         
-  var mySpace =  new Pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
+  //var mySpace =  new Pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
+  var mySpace =  new CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
 
   var myPtForm =  mySpace.getForm();                                 
                                                                                
