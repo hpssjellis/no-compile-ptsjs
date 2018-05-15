@@ -11,9 +11,9 @@
  // (async function() {                                      
 
                                         
-  var mySpace =  Pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
+  var mySpace =  new Pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
 
-  var myPtForm = mySpace.getForm();                                 
+  var myPtForm = new mySpace.getForm();                                 
                                                                                
   mySpace.add( function() { 
       myPtForm.point( mySpace.pointer, 10 ) 
