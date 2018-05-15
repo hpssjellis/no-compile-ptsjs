@@ -4,7 +4,7 @@
 <script type="inline-module">
 
 (async () => {
-    const document.myModule = await import('./myModule.js');
+   Pts = await import('https://unpkg.com/pts@0.4.0/dist/index.js');
 })();
 
 </script>
@@ -12,16 +12,14 @@
 
 <input type=button value=go onclick="{
 
-   alert()
-}">
 
 
 
   (async function() {                                      
-   //  Pts.namespace( this );
+
                                         
   var mySpace =  new Pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
-  //var mySpace =  new CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
+
   var myPtForm =  mySpace.getForm();                                 
                                                                                
   mySpace.add( function() { 
@@ -31,3 +29,6 @@
   mySpace.playOnce(200).bindMouse().bindTouch();
    
 })()
+
+
+}">
