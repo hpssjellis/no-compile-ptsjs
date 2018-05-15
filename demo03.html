@@ -1,0 +1,64 @@
+
+
+
+<script src="https://unpkg.com/pts/dist/pts.min.js"></script>   
+
+<!--  <script src="https://raw.githubusercontent.com/williamngan/pts/master/dist/pts.js"></script>  -->
+
+
+
+<input type=button value=click onclick="{
+
+
+//var Pts = Pts || {}
+                                        
+                                        
+(function() {
+
+  Pts.namespace( this );
+
+  var space = new CanvasSpace("#pt").setup({bgcolor: "#96bfed", resize: true, retina: true});
+  var form = space.getForm();
+
+
+  //// Demo code ---
+
+  var currBound = new Bound();
+
+  space.add({ 
+    animate: (time, ftime) => {
+      // create a circles in each quarter
+      let quads = Rectangle.quadrants( [new Pt(), currBound.size] );
+      let circles = quads.map( (q) => Rectangle.toCircle( q ) );
+      
+      form.fillOnly("#09f").circles( circles );
+      form.strokeOnly( "#fff", 2).lines( quads );
+      form.fill("#f03").point( space.center, 10, "circle" );
+      form.log( "Size: "+currBound.size.toString() );
+    },
+
+    resize: (bound, evt) => { currBound = bound; }
+    
+  });
+
+  //// ----
+  
+
+  space.bindMouse().bindTouch().play();
+
+})();
+                                        
+}">
+
+
+<input type=button value="..." onclick="{
+
+                                        
+ //  document.getElementById('myDiv2424').innerHTML += 'Version ' + Pts.version()                                      
+
+                                        
+}">
+
+
+
+<divid="myDiv2424" >...</div>
