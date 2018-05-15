@@ -21,6 +21,21 @@ demo03
 https://hpssjellis.github.io/no-compile-ptsjs/demo03.html
 
 
+demo04  
+https://hpssjellis.github.io/no-compile-ptsjs/demo04.html
+
+
+
+demo05  
+https://hpssjellis.github.io/no-compile-ptsjs/demo05.html
+
+
+
+demo06  
+https://hpssjellis.github.io/no-compile-ptsjs/demo06.html
+
+
+
 
 
 .
