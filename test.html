@@ -11,9 +11,9 @@ var pts = pts || {}
   (async function () {                                      
  // var pts = await import('https://unpkg.com/pts@0.4.0/dist/index.js'); 
                                         
-  var mySpace = pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
+  var mySpace = await pts.CanvasSpace('#myDiv2424').setup({ retina: true, resize: true })
 
-  var myPtForm = mySpace.getForm();                                 
+  var myPtForm = await mySpace.getForm();                                 
                                                                                
   mySpace.add( function() { 
       myPtForm.point( mySpace.pointer, 10 ) 
