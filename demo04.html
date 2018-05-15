@@ -12,44 +12,41 @@
 //var Pts = Pts || {}
                                         
                                         
- (function(){
-                                        
-                
-   Pts.namespace( this); // add Pts into scope if needed
+(function(){
+  // Pts.namespace( this ); // add Pts into scope if needed
   
-
+ 
   
   // create Space and Form
-  var space = new CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
+  var space = new CanvasSpace('yDiv2424'.setup({ retina: true, bgcolor: '#e2e6ef', resize: true });
   var form = space.getForm();
   
-
   // animation
   space.add( (time, ftime) => {
-
-    // rectangle
-    var rect = Rectangle.fromCenter( space.center, space.size.$divide(2) );
-    var poly = Rectangle.corners( rect );
-    poly.shear2D( Num.cycle( time%5000/5000 ) - 0.5, space.center );
     
-    // triangle
-    var tris = poly.segments( 2, 1, true );
-    tris.map( (t) => t.push( space.pointer ) );
+    let c = space.center;
+    let m = space.pointer;
+    let reflectLine = [ m, c ];
     
-    // circle
-    var circles = tris.map( (t) => Triangle.incircle( t ) );
+    // a group of points
+    let g1 = new Group( c.$add(0, -50), c.$add(50, -50), c.$add(50, 0), c.$add(50, 50), c.$add(0, 50) );
     
-    // drawing
-    form.fillOnly('#123').polygon( poly );
-    form.fill('#f03').circles( circles );
-    form.strokeOnly('#fff ', 3 ).polygons( tris );
-    form.fill('#123').point( space.pointer, 5 );
+    // scale each one using Pt's scale functions
+    let s = 0.75 + m.$subtract(c).magnitude() / space.width;
+    let g2 = g1.map( (p) => p.scale(s)  );
+    
+    // Alternatively, just use the Geom.reflect2D to reflect a group of Pt
+    let g3 = g2.clone();
+    Geom.reflect2D( g3, reflectLine );
+    
+    form.strokeOnly('#fff'20, 'iter'.line(g1).stroke('123'.line(g3);
+    form.stroke('f03' 10).line( reflectLine );
     
   });
   
   // start
- // space.playOnce(200).bindMouse().bindTouch();
-    space.bindMouse().bindTouch().play(); 
+  space.playOnce(200).bindMouse().bindTouch();
+  
 
   
 })();
