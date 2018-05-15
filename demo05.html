@@ -12,44 +12,36 @@
 //var Pts = Pts || {}
                                         
                                         
- (function(){
-                                        
-                
-   Pts.namespace( this); // add Pts into scope if needed
-  
+(function(){
+  // Pts.namespace( this ); // add Pts into scope if needed
+
 
   
   // create Space and Form
-  var space = new CanvasSpace('#myDiv2424').setup({ retina: true, resize: true });
+  var space = new CanvasSpace('#myDiv2424').setup({ retina: true, bgcolor: '#e2e6ef', resize: true });
   var form = space.getForm();
   
-
+  
   // animation
   space.add( (time, ftime) => {
+     
+    let m = space.pointer;
+    let c = space.center;
+    let p = m.$subtract(c); // the vector from center to mouse
+    let lengthP = p.magnitude();
+    
+    let ang = p.angle();
+    let angText = Geom.boundRadian( ang ); // bound between 0 to 2-PI
 
-    // rectangle
-    var rect = Rectangle.fromCenter( space.center, space.size.$divide(2) );
-    var poly = Rectangle.corners( rect );
-    poly.shear2D( Num.cycle( time%5000/5000 ) - 0.5, space.center );
     
-    // triangle
-    var tris = poly.segments( 2, 1, true );
-    tris.map( (t) => t.push( space.pointer ) );
-    
-    // circle
-    var circles = tris.map( (t) => Triangle.incircle( t ) );
-    
-    // drawing
-    form.fillOnly('#123').polygon( poly );
-    form.fill('#f03').circles( circles );
-    form.strokeOnly('#fff ', 3 ).polygons( tris );
-    form.fill('#123').point( space.pointer, 5 );
-    
+    form.strokeOnly('#f03', 10, 'round', 'round').line( [c, m] );
+    form.stroke('#fff').line( [c, new Pt(c.x + lengthP, c.y)])
+    form.stroke('#f03', 10).arc(c, lengthP, 0, ang);
+    form.fill('#123').font(18, 'bold').text( c.$add( p.toAngle( angText/2, lengthP/2 ) ).add(10, 5), Math.floor( Geom.toDegree(angText) )+'°' );
   });
   
   // start
- // space.playOnce(200).bindMouse().bindTouch();
-    space.bindMouse().bindTouch().play(); 
+  space.playOnce(200).bindMouse().bindTouch();
 
   
 })();
