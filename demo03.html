@@ -17,7 +17,7 @@
 
   Pts.namespace( this );
 
-  var space = new CanvasSpace("#pt").setup({bgcolor: "#96bfed", resize: true, retina: true});
+  var space = new CanvasSpace('#pt').setup({bgcolor: '#96bfed', resize: true, retina: true});
   var form = space.getForm();
 
 
@@ -31,10 +31,10 @@
       let quads = Rectangle.quadrants( [new Pt(), currBound.size] );
       let circles = quads.map( (q) => Rectangle.toCircle( q ) );
       
-      form.fillOnly("#09f").circles( circles );
-      form.strokeOnly( "#fff", 2).lines( quads );
-      form.fill("#f03").point( space.center, 10, "circle" );
-      form.log( "Size: "+currBound.size.toString() );
+      form.fillOnly('#09f').circles( circles );
+      form.strokeOnly( '#fff', 2).lines( quads );
+      form.fill('#f03').point( space.center, 10, 'circle' );
+      form.log( 'Size: '+currBound.size.toString() );
     },
 
     resize: (bound, evt) => { currBound = bound; }
