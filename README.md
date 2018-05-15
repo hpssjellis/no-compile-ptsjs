@@ -7,6 +7,7 @@ My testing at
 https://hpssjellis.github.io/no-compile-ptsjs/index.html
 
 
+https://hpssjellis.github.io/no-compile-ptsjs/test-bad01.html
 
 
 
